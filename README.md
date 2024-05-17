@@ -20,7 +20,8 @@ Here are direct links for same.<br>
 * [Datasheet](https://www.quectel.com/ProductDownload/EC200T.zip) 
 * [AT Command Manual](https://www.quectel.com/ProductDownload/EC200T.zip)
 ## Prerequisites
-* [Realterm](https://realterm.sourceforge.io/index.html#downloads_Download) or any other serial terminal
+* [Realterm](https://realterm.sourceforge.io/index.html#downloads_Download) or any other serial terminal (Windows)
+* minicom (Linux)
 * USB to TTL (CP2102)
 * EC200 EVB
 * Jumpers
@@ -32,6 +33,7 @@ Here are direct links for same.<br>
 * Power Supply(5V/3.3V and GND)
 ## Getting Started
 Follow the steps for getting started:
+### Windows
 * Connect the USB to TTL(CP2102) to USB port of PC and open device manager to check the port connected to serial bridge (USB to TTL).<br>
 ![Alt text](Images/deviceManager.png?raw=true "Title")
 * Open Realterm or any other serial terminal you want to use.
@@ -44,6 +46,21 @@ Follow the steps for getting started:
 * That's it!!! Now you can send AT commands using realterm directly to GSM Module and also receive its response.
 * Firstly check whether you receive ```OK``` in response to ```AT\r\n```, to make sure that your connections and configurations are fine.
 * Now you can further proceed to other AT commands according to your application.
+### Linux
+First you need to install the minicom application
+```
+apt update
+apt install minicom
+```
+In the next step, confirm the serial port address using the following command
+```
+demsg | grep tty
+```
+And try to open the app using the following command
+```
+minicom -s
+```
+
 ## Basic AT Commands
 1. Basic AT Command: ```AT\r\n```
 2. Deactivate PDP Context: ```AT+QIDEACT=1\r\n```
